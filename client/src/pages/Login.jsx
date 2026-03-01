@@ -45,7 +45,7 @@ function Login() {
 
       navigate("/admin");
     } catch (err) {
-      setError("Invalid email or password");
+      setError("Invalid email or password",err);
     } finally {
       setLoading(false);
     }
