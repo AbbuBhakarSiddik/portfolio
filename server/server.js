@@ -12,6 +12,7 @@ const authRoutes = require("./routes/authRoutes");
 app.use(
   cors({
     origin: process.env.VITE_API_URL,
+    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
