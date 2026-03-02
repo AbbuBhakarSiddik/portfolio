@@ -9,7 +9,7 @@ const certificateRoutes = require("./routes/certificateRoutes");
 const portfolioRoutes = require("./routes/portfolioRoutes");
 const authRoutes = require("./routes/authRoutes");
 
-const cors = require("cors");
+
 
 app.use(cors({
   origin: "https://portfolio-beige-phi-51.vercel.app",
@@ -17,7 +17,7 @@ app.use(cors({
   credentials: true
 }));
 
-app.use(cors());
+
 app.use(express.json());
 app.use("/uploads", express.static("uploads"));
 
