@@ -7,7 +7,7 @@ import "../assets/css/styles.css";
 
 function Home() {
   const [portfolio, setPortfolio] = useState(null);
-  const [loading, ] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   const baseURL = import.meta.env.VITE_API_URL.replace("/api", "");
 
