@@ -23,7 +23,7 @@ useEffect(() => {
   };
 
   fetchPortfolio();
-}, []);
+
 
     const sr = ScrollReveal({
       origin: "top",
@@ -42,7 +42,7 @@ useEffect(() => {
       { delay: 400 }
     );
     sr.reveal(".home__social-icon", { interval: 200 });
-  
+  }, []);
 
   if (loading) {
     return (
