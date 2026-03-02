@@ -7,23 +7,23 @@ import "../assets/css/styles.css";
 
 function Home() {
   const [portfolio, setPortfolio] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, ] = useState(true);
 
   const baseURL = import.meta.env.VITE_API_URL.replace("/api", "");
 
-  useEffect(() => {
-    const fetchPortfolio = async () => {
-      try {
-        const { data } = await api.get("/portfolio");
-        setPortfolio(data);
-      } catch (err) {
-        console.error("Failed to fetch portfolio data", err);
-      } finally {
-        setLoading(false);
-      }
-    };
+useEffect(() => {
+  const fetchPortfolio = async () => {
+    try {
+      const { data } = await api.get("/portfolio");
+      setPortfolio(data);
+    } catch (err) {
+      console.log("Backend sleeping... retrying in 3 seconds",err);
+      setTimeout(fetchPortfolio, 3000);
+    }
+  };
 
-    fetchPortfolio();
+  fetchPortfolio();
+}, []);
 
     const sr = ScrollReveal({
       origin: "top",
@@ -42,7 +42,7 @@ function Home() {
       { delay: 400 }
     );
     sr.reveal(".home__social-icon", { interval: 200 });
-  }, []);
+  
 
   if (loading) {
     return (
